@@ -1,0 +1,8 @@
+services:
+  application:
+    build:
+      context: ./docker/php-cli
+    image: comments-client/php-cli
+    volumes:
+      - ./:/data/lib
+    working_dir: /data/lib
