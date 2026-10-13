@@ -24,7 +24,7 @@ readonly class Comment
         $id = filter_var($data[CommentFields::ID] ?? null, FILTER_VALIDATE_INT);
 
         if (
-            filter_var($id, FILTER_VALIDATE_INT) === false
+            $id === false
             || is_bool($data[CommentFields::ID] ?? null)
         ) {
             throw new InvalidResponseException('Comment id must be an integer');

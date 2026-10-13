@@ -41,19 +41,17 @@ class CommentTest extends TestCase
     /**
      * @return iterable<string, array{array<string, mixed>}>
      */
-    public static function invalidCommentData(): array
+    public static function invalidCommentData(): iterable
     {
-        return [
-            'missing id' => [['name' => 'Vlad', 'text' => 'hi user']],
-            'null id' => [['id' => null, 'name' => 'Vlad', 'text' => 'hi user']],
-            'non-numeric string id' => [['id' => 'abc', 'name' => 'Vlad', 'text' => 'hi user']],
-            'float id' => [['id' => 1.5, 'name' => 'Vlad', 'text' => 'hi user']],
-            'bool id' => [['id' => true, 'name' => 'Vlad', 'text' => 'hi user']],
-            'array id' => [['id' => [1], 'name' => 'Vlad', 'text' => 'hi user']],
-            'missing name' => [['id' => 1, 'text' => 'hi user']],
-            'int name' => [['id' => 1, 'name' => 42, 'text' => 'hi user']],
-            'missing text' => [['id' => 1, 'name' => 'Vlad']],
-            'array text' => [['id' => 1, 'name' => 'Vlad', 'text' => ['hi user']]],
-        ];
+        yield 'missing id' => [['name' => 'Vlad', 'text' => 'hi user']];
+        yield 'null id' => [['id' => null, 'name' => 'Vlad', 'text' => 'hi user']];
+        yield 'non-numeric string id' => [['id' => 'abc', 'name' => 'Vlad', 'text' => 'hi user']];
+        yield 'float id' => [['id' => 1.5, 'name' => 'Vlad', 'text' => 'hi user']];
+        yield 'bool id' => [['id' => true, 'name' => 'Vlad', 'text' => 'hi user']];
+        yield 'array id' => [['id' => [1], 'name' => 'Vlad', 'text' => 'hi user']];
+        yield 'missing name' => [['id' => 1, 'text' => 'hi user']];
+        yield 'int name' => [['id' => 1, 'name' => 42, 'text' => 'hi user']];
+        yield 'missing text' => [['id' => 1, 'name' => 'Vlad']];
+        yield 'array text' => [['id' => 1, 'name' => 'Vlad', 'text' => ['hi user']]];
     }
 }
